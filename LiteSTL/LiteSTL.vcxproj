@@ -13,7 +13,7 @@
   <PropertyGroup Label="Globals">
     <ProjectGuid>{71FDEC7B-710C-4B28-A71F-278134E7A396}</ProjectGuid>
     <Keyword>Win32Proj</Keyword>
-    <RootNamespace>LittleSTL</RootNamespace>
+    <RootNamespace>LiteSTL</RootNamespace>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">

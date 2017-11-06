@@ -1,7 +1,7 @@
 #ifndef _ALLOCATOR_H_
 #define _ALLOCATOR_H_
 
-namespace LittleSTL{
+namespace LiteSTL{
 	template<class T>
 	class allocator{
 	public:

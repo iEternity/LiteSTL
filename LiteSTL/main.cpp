@@ -3,7 +3,7 @@
 
 int main()
 {
-	LittleSTL::VectorTest::testCase1();
+	LiteSTL::VectorTest::testCase1();
 
 	system("pause");
 	return 0;
