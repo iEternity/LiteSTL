@@ -5,6 +5,12 @@
 namespace LiteSTL
 {
 
+template<typename T, typename Allocator>
+Vector<T, Allocator>::Vector(size_t n)
+{
+	allocateAndFillN(n, ValueType());
+}
+
 template<class T, class Allocator>
 Vector<T, Allocator>::Vector(const size_t n, const ValueType& value)
 {

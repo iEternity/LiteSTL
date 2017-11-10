@@ -9,9 +9,13 @@ template<class T, class Allocator = Allocator<T>>
 class Vector
 {
 public:
-	using ValueType = T;
-	using Iterator = T*;
-	using ConstIterator = const T*;
+	using ValueType				= T;
+	using Iterator				= T*;
+	using ConstIterator			= const T*;
+	using Pointer				= T*;
+	using Reference				= T&;
+	using ConstReference		= const T&;
+	using DifferenceType		= ptrdiff_t;
 
 public:
 	Vector():
@@ -20,13 +24,16 @@ public:
 		endOfStorage_(0)
 	{
 	}
-	Vector(const size_t n, const ValueType& value);
+	explicit Vector(size_t n);
+	Vector(size_t n, const ValueType& value);
+	template<typename InputIterator>
+	Vector(InputIterator first, InputIterator last);
 
 	Iterator begin()	{ return begin_; }
 	Iterator end()		{ return end_; }
 
 private:
-	void allocateAndFillN(const size_t n, const ValueType& value);
+	void allocateAndFillN(size_t n, const ValueType& value);
 
 private:
 	Iterator begin_;
