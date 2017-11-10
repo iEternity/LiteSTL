@@ -1,21 +1,21 @@
-#ifndef _VECTOR_TEST_H_
-#define _VECTOR_TEST_H_
+#pragma once
 
-#include"../Vector.h"
-#include<vector>
+#include "..\Vector.h"
+#include <vector>
 
-namespace LiteSTL{
-	namespace VectorTest{
+namespace LiteSTL
+{
+namespace VectorTest
+{
 
-		template<class T>
-		using stdVector = std::vector<T>;
+template<class T>
+using stdVector = std::vector<T>;
 
-		template<class T>
-		using myVector = LiteSTL::vector<T>;
+template<class T>
+using myVector = LiteSTL::Vector<T>;
 
-		void testCase1();
-	}
+void testCase1();
+
 }
-
-#endif
+}
 

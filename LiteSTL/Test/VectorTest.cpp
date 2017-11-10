@@ -1,12 +1,11 @@
-#include"VectorTest.h"
-#include<string>
-#include<assert.h>
-#include"TestUtil.h"
+#include "VectorTest.h"
+#include <string>
+#include <assert.h>
+#include "TestUtil.h"
 
 using namespace LiteSTL;
-using namespace VectorTest;
 
-void testCase1()
+void VectorTest::testCase1()
 {
 	stdVector<std::string> vec1(10, "zhangkuo");
 	myVector<std::string> vec2(10, "zhangkuo");

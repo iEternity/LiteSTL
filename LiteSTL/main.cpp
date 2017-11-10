@@ -1,4 +1,5 @@
-#include "Test/VectorTest.h"
+#include "Test\VectorTest.h"
+using namespace LiteSTL;
 
 
 int main()

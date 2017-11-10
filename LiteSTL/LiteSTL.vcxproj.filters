@@ -30,6 +30,9 @@
     <ClCompile Include="Test\VectorTest.cpp">
       <Filter>Test</Filter>
     </ClCompile>
+    <ClCompile Include="Alloc.cpp">
+      <Filter>Detail</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Test\VectorTest.h">
@@ -48,6 +51,15 @@
       <Filter>Test</Filter>
     </ClInclude>
     <ClInclude Include="Alloc.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="UninitializedFunctions.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="TypeTraits.h">
+      <Filter>头文件</Filter>
+    </ClInclude>
+    <ClInclude Include="Construct.h">
       <Filter>头文件</Filter>
     </ClInclude>
   </ItemGroup>

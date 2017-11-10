@@ -1,17 +1,21 @@
 #pragma once
-#include"../Vector.h"
+#include "../Vector.h"
+#include "../UninitializedFunctions.h"
 
 namespace LiteSTL
 {
 
-template<class T, class Alloc>
-vector<T, Alloc>::vector(const size_type n, const value_type& value){
+template<class T, class Allocator>
+Vector<T, Allocator>::Vector(const size_t n, const ValueType& value)
+{
 	allocateAndFillN(n, value);
 }
 
-template<class T, class Alloc>
-vector<T, Alloc>::allocateAndFillN(const size_type n, const value_type value){
-	dataAllocator::alloc(sizeof(n*value));
+template<class T, class Allocator>
+void Vector<T, Allocator>::allocateAndFillN(const size_t n, const ValueType& value)
+{
+	begin_ = Allocator::allocate(n);
+	end_ = endOfStorage_ = uninitializedFillN(begin_, n, value);
 }
 
 }

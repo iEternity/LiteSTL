@@ -79,15 +79,19 @@
     <Text Include="ReadMe.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Alloc.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="Test\VectorTest.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Alloc.h" />
     <ClInclude Include="Allocator.h" />
+    <ClInclude Include="Construct.h" />
     <ClInclude Include="Detail\Vector.impl.h" />
     <ClInclude Include="Test\TestUtil.h" />
     <ClInclude Include="Test\VectorTest.h" />
+    <ClInclude Include="TypeTraits.h" />
+    <ClInclude Include="UninitializedFunctions.h" />
     <ClInclude Include="Vector.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

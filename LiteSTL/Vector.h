@@ -1,39 +1,39 @@
-#ifndef _VECTOR_H_
-#define _VECTOR_H_
+#pragma once
 
 #include "Allocator.h"
 
 namespace LiteSTL
 {
 	
-template<class T, class Alloc = allocator<T>>
-class vector
+template<class T, class Allocator = Allocator<T>>
+class Vector
 {
 public:
-	vector()
-		:start_(0), finish_(0), endOfStorage_(0){}
-	vector(const size_type n, const value_type& value);
-
-	iterator begin(){ return start_; }
-	iterator end(){ return finish_; }
-
-private:
-	void allocateAndFillN(const size_type n, const value_type& value);
-
-private:
-	typedef Alloc dataAllocator;
-	T* start_;
-	T* finish_;
-	T* endOfStorage_;
+	using ValueType = T;
+	using Iterator = T*;
+	using ConstIterator = const T*;
 
 public:
-	typedef T					value_type;
-	typedef T*					iterator;
-	typedef const T*			const_iterator;
-	typedef size_t				size_type;
+	Vector():
+		begin_(0), 
+		end_(0), 
+		endOfStorage_(0)
+	{
+	}
+	Vector(const size_t n, const ValueType& value);
+
+	Iterator begin()	{ return begin_; }
+	Iterator end()		{ return end_; }
+
+private:
+	void allocateAndFillN(const size_t n, const ValueType& value);
+
+private:
+	Iterator begin_;
+	Iterator end_;
+	Iterator endOfStorage_;
 };
 
 }
 
-#include"../Detail/Vector.impl.h"
-#endif
+#include "../Detail/Vector.impl.h"
