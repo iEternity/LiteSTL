@@ -1,6 +1,7 @@
 #pragma once
 #include "TypeTraits.h"
 #include "Construct.h"
+#include "Iterator.h"
 
 namespace LiteSTL
 {
@@ -34,4 +35,28 @@ namespace LiteSTL
 	/*uninitializedFill*/
 
 	/*uninitializedCopy*/
+	template<typename InputIterator, typename ForwardIterator>
+	ForwardIterator _uninitializedCopy(InputIterator first, InputIterator last, ForwardIterator result, TrueType)
+	{
+		memcpy(result, first, (last - first) * sizeof(*first));
+		return result + (last - first);
+	}
+
+	template<typename InputIterator, typename ForwardIterator>
+	ForwardIterator _uninitializedCopy(InputIterator first, InputIterator last, ForwardIterator result, FalseType)
+	{
+		for (; first != last; first++, result++)
+		{
+			construct(result, *first);
+		}
+		return result;
+	}
+
+	template<typename InputIterator, typename ForwardIterator>
+	inline ForwardIterator uninitializedCopy(InputIterator first, InputIterator last, ForwardIterator result)
+	{
+		using IsPODType = typename TypeTraits<IteratorTraits<InputIterator>::ValueType>::IsPODType;
+		_uninitializedCopy(first, last, result, IsPODType);
+	}
+
 }

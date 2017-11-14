@@ -5,8 +5,9 @@ namespace LiteSTL
 
 	struct TrueType {};
 	struct FalseType {};
-
-	/*萃取传入的T的类型特性*/
+	/***********************************************************/
+	/*					萃取传入的T的类型特性					   */
+	/***********************************************************/
 	template<typename T>
 	struct TypeTraits
 	{
@@ -256,4 +257,109 @@ namespace LiteSTL
 		using HasTrivialDestructor = TrueType;
 		using IsPODType = TrueType;
 	};
+
+	/****************************************************************/
+	/*                          整数类型判断                          */
+	/****************************************************************/
+	template<typename T>
+	struct IsIntegral
+	{
+		using Type = FalseType;
+	};
+
+	template<>
+	struct IsIntegral<bool>
+	{
+		using Type = TrueType;
+	};
+
+	template<>
+	struct IsIntegral<char>
+	{
+		using Type = TrueType;
+	};
+
+	template<>
+	struct IsIntegral<unsigned char>
+	{
+		using Type = TrueType;
+	};
+
+	template<>
+	struct IsIntegral<signed char>
+	{
+		using Type = TrueType;
+	};
+
+#ifdef _NATIVE_WCHAR_T_DEFINED
+	template<>
+	struct IsIntegral<wchar_t>
+	{
+		using Type = TrueType;
+	};
+#endif
+
+#ifdef _HAS_CHAR16_T_LANGUAGE_SUPPORT
+	template<>
+	struct IsIntegral<char16_t>
+	{
+		using Type = TrueType;
+	};
+
+	template<>
+	struct IsIntegral<char32_t>
+	{
+		using Type = TrueType;
+	};
+#endif
+
+	template<>
+	struct IsIntegral<short>
+	{
+		using Type = TrueType;
+	};
+
+	template<>
+	struct IsIntegral<unsigned short>
+	{
+		using Type = TrueType;
+	};
+
+	template<>
+	struct IsIntegral<int>
+	{
+		using Type = TrueType;
+	};
+
+	template<>
+	struct IsIntegral<unsigned int>
+	{
+		using Type = TrueType;
+	};
+
+	template<>
+	struct IsIntegral<long>
+	{
+		using Type = TrueType;
+	};
+
+	template<>
+	struct IsIntegral<unsigned long>
+	{
+		using Type = TrueType;
+	};
+
+#ifdef _LONGLONG
+	template<>
+	struct IsIntegral<long long>
+	{
+		using Type = TrueType;
+	};
+
+	template<>
+	struct IsIntegral<unsigned long long>
+	{
+		using Type = TrueType;
+	};
+#endif
 }
